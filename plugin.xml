@@ -22,6 +22,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     <preference name="ANALYTICS_COLLECTION_ENABLED" default="true" />
     <preference name="AUTOMATIC_SCREEN_REPORTING_ENABLED" default="true" />
+    <preference name="ADVERTISER_ID_COLLECTION" default="true" />
 
     <platform name="ios">
         <preference name="IOS_FIREBASE_ANALYTICS_VERSION" default="~> 7.0.0"/>
@@ -52,7 +53,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods>
-                <pod name="Firebase/Analytics" spec="$IOS_FIREBASE_ANALYTICS_VERSION" />
+                <pod name="Firebase/AnalyticsWithoutAdIdSupport" spec="$IOS_FIREBASE_ANALYTICS_VERSION" />
+                <!-- <pod name="Firebase/Analytics" spec="$IOS_FIREBASE_ANALYTICS_VERSION" /> -->
             </pods>
         </podspec>
     </platform>
@@ -79,6 +81,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data android:name="firebase_analytics_collection_enabled" android:value="$ANALYTICS_COLLECTION_ENABLED" />
             <meta-data android:name="google_analytics_automatic_screen_reporting_enabled" android:value="$AUTOMATIC_SCREEN_REPORTING_ENABLED" />
+            <meta-data android:name="google_analytics_adid_collection_enabled" android:value="$ADVERTISER_ID_COLLECTION" />
         </config-file>
 
         <dependency id="cordova-support-android-plugin" version="~1.0.0"/>
